@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从加勒比到印度洋：西方海盗路线的转移（1650–1730）</title>
+  <meta name="description" content="互动路线图：1650–1730 年西方海盗活动重心从加勒比海向印度洋的转移与消退。所有条目附史料出处。">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="title-block">
+      <h1>从加勒比到印度洋</h1>
+      <p class="subtitle">西方海盗路线的转移 · 1650–1730 · 课堂导览</p>
+    </div>
+    <div class="top-controls">
+      <button id="btn-music" class="btn" aria-pressed="false">♪ 音乐</button>
+      <button id="btn-table" class="btn" aria-pressed="false">年表与书目</button>
+      <button id="btn-theme" class="btn">浅色模式</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="narrative" id="narrative" aria-label="阶段叙事">
+      <div class="intro">
+        <p class="intro-note">海盗活动的重心并非一成不变。点击「导览」或拖动时间轴，观察航线如何先从加勒比滑向印度洋，又在清剿中转移、消退。</p>
+        <p class="method-note">航线为示意折线（非精确航迹）；所有条目附史料出处，约数标「约」；存疑处（如「利伯塔利亚」）已注明。</p>
+      </div>
+      <div class="stages" id="stages"></div>
+      <div class="legend" id="legend"></div>
+    </aside>
+
+    <main class="map-wrap" id="map-wrap">
+      <canvas id="map" role="img" aria-label="1650–1730 年西方海盗航线互动地图"></canvas>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="tour-progress" id="tour-progress" aria-hidden="true"><div class="tour-progress-fill" id="tour-progress-fill"></div></div>
+      <div class="stage-title" id="stage-title" aria-hidden="true">
+        <div class="st-kicker" id="st-kicker"></div>
+        <div class="st-title" id="st-title"></div>
+        <div class="st-sub" id="st-sub"></div>
+      </div>
+      <div class="tooltip" id="tooltip" hidden></div>
+
+      <div class="detail-card" id="detail" hidden>
+        <button class="detail-close" id="detail-close" aria-label="关闭">×</button>
+        <div class="detail-body" id="detail-body"></div>
+      </div>
+
+      <div class="timeline" id="timeline" aria-label="时间轴">
+        <div class="tl-top">
+          <button id="btn-play" class="btn btn-play" aria-pressed="false">▶ 导览</button>
+          <div class="year-readout"><span id="year-label">1650</span><span class="year-suffix">年</span></div>
+          <div class="stage-chips" id="stage-chips" role="group" aria-label="阶段筛选"></div>
+        </div>
+        <div class="tl-track">
+          <div class="event-ticks" id="event-ticks"></div>
+          <input type="range" id="slider" min="1650" max="1730" step="1" value="1650" aria-label="年份">
+          <div class="tl-ends"><span>1650</span><span>1730</span></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <section class="table-view" id="table-view" hidden>
+    <h2>年表（事件总表）</h2>
+    <div class="table-scroll">
+      <table id="events-table"></table>
+    </div>
+    <h2>参考书目</h2>
+    <ul class="bibliography" id="bibliography"></ul>
+  </section>
+
+  <script src="vendor/d3.min.js"></script>
+  <script src="data/land.js"></script>
+  <script src="data/bibliography.js"></script>
+  <script src="data/figures.js"></script>
+  <script src="data/ports.js"></script>
+  <script src="data/routes.js"></script>
+  <script src="data/events.js"></script>
+  <script src="data/stages.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
